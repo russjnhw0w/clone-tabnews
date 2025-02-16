@@ -41,34 +41,22 @@
   transition: background-color 0.3s ease;
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes neonGlow {
   from {
     text-shadow:
-      0 0 5px #00bfff,
-      /* Azul claro */ 0 0 10px #00bfff,
-      0 0 20px #00bfff,
-      0 0 40px #00bfff,
-      0 0 80px #00bfff;
+      0 0 5px rgba(0, 191, 255, 0.8),
+      /* Azul claro com transparência */ 0 0 10px rgba(0, 191, 255, 0.8),
+      0 0 20px rgba(0, 191, 255, 0.8),
+      0 0 40px rgba(0, 191, 255, 0.8),
+      0 0 80px rgba(0, 191, 255, 0.8);
   }
   to {
     text-shadow:
-      0 0 10px #00ff7f,
-      /* Verde claro */ 0 0 20px #00ff7f,
-      0 0 40px #00ff7f,
-      0 0 80px #00ff7f,
-      0 0 120px #00ff7f;
+      0 0 10px rgba(0, 255, 127, 0.8),
+      /* Verde claro com transparência */ 0 0 20px rgba(0, 255, 127, 0.8),
+      0 0 40px rgba(0, 255, 127, 0.8),
+      0 0 80px rgba(0, 255, 127, 0.8),
+      0 0 120px rgba(0, 255, 127, 0.8);
   }
 }
 
@@ -78,28 +66,19 @@
   background: linear-gradient(
     45deg,
     #00bfff,
-    #00ff7f,
-    #8a2be2
-  ); /* Gradiente harmonizado */
-  background-size: 300% 300%;
-  -webkit-text-fill-color: transparent;
-  animation:
-    gradientAnimation 5s ease infinite,
-    neonGlow 1.5s ease-in-out infinite alternate;
+    /* Azul claro */ #00ff7f,
+    /* Verde claro */ #8a2be2 /* Roxo */
+  );
+  -webkit-background-clip: text; /* Aplica o gradiente apenas ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente */
+  animation: neonGlow 1.5s ease-in-out infinite alternate; /* Efeito neon */
   text-align: center;
   margin-bottom: 20px;
-  text-shadow:
-    2px 2px 0px #00bfff,
-    4px 4px 0px #00ff7f,
-    6px 6px 0px #8a2be2;
   transition: text-shadow 0.3s ease;
 }
 
 .title:hover {
-  text-shadow:
-    4px 4px 0px #00bfff,
-    8px 8px 0px #00ff7f,
-    12px 12px 0px #8a2be2;
+  animation: neonGlow 0.5s ease-in-out infinite alternate; /* Aumenta a velocidade no hover */
 }
 .loginButton {
   background-color: #008cba; /* Azul */
