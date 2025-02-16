@@ -9,17 +9,37 @@ const Card = () => {
     router.push("/Cadastro"); // Redireciona para a página de cadastro
   };
 
+  const handleQuemSomosClick = () => {
+    router.push("/QuemSomos"); // Redireciona para a página "Quem Somos"
+  };
+
+  const handleServicosClick = () => {
+    router.push("/Servicos"); // Redireciona para a página "Serviços"
+  };
+
   return (
-    <button className={styles.button} onClick={handleCadastroClick}>
-      Registre-se
-    </button>
+    <>
+      <button className={styles.button} onClick={handleCadastroClick}>
+        Registre-se
+      </button>
+      <button className={styles.button} onClick={handleQuemSomosClick}>
+        Quem somos
+      </button>
+      <button className={styles.button} onClick={handleServicosClick}>
+        Serviços
+      </button>
+    </>
   );
 };
-
 const LoginCard = () => {
   return (
-    <div>
-      <h1>Login Card</h1>
+    <div className={styles.container}>
+      {/* Vídeo de fundo */}
+      <video autoPlay loop muted playsInline className={styles.videoBackground}>
+        <source src="/videos/background.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeos HTML5.
+      </video>
+      <h1 className={styles.title}>ENGINE DEVELOPMENT</h1>
       <Card />
     </div>
   );

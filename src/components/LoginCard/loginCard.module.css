@@ -1,6 +1,131 @@
-.card {
-  background-color: rgb(255, 255, 255);
-  width: 250px;
-  padding: 20px;
-  border-radius: 10px;
+/* loginCard.module.css */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  overflow: hidden; /* Evita barras de rolagem */
+}
+
+.videoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o vídeo cubra toda a área */
+  z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Coloca o conteúdo na frente do vídeo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white; /* Cor do texto */
+  text-align: center;
+}
+
+.button {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow:
+      0 0 5px #00bfff,
+      /* Azul claro */ 0 0 10px #00bfff,
+      0 0 20px #00bfff,
+      0 0 40px #00bfff,
+      0 0 80px #00bfff;
+  }
+  to {
+    text-shadow:
+      0 0 10px #00ff7f,
+      /* Verde claro */ 0 0 20px #00ff7f,
+      0 0 40px #00ff7f,
+      0 0 80px #00ff7f,
+      0 0 120px #00ff7f;
+  }
+}
+
+.title {
+  font-size: 4rem;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    45deg,
+    #00bfff,
+    #00ff7f,
+    #8a2be2
+  ); /* Gradiente harmonizado */
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    gradientAnimation 5s ease infinite,
+    neonGlow 1.5s ease-in-out infinite alternate;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow:
+    2px 2px 0px #00bfff,
+    4px 4px 0px #00ff7f,
+    6px 6px 0px #8a2be2;
+  transition: text-shadow 0.3s ease;
+}
+
+.title:hover {
+  text-shadow:
+    4px 4px 0px #00bfff,
+    8px 8px 0px #00ff7f,
+    12px 12px 0px #8a2be2;
+}
+.loginButton {
+  background-color: #008cba; /* Azul */
+  color: white;
+  border: none;
+}
+
+.loginButton:hover {
+  background-color: #007b9e; /* Azul mais escuro ao passar o mouse */
+}
+
+.registerButton {
+  background-color: #4caf50; /* Verde */
+  color: white;
+  border: none;
+}
+
+.registerButton:hover {
+  background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+}
+
+.button:hover {
+  background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+}
+
+.button:active {
+  background-color: #3e8e41; /* Verde ainda mais escuro ao clicar */
 }

@@ -1,5 +1,15 @@
-function Home() {
-  return <h1>Pagina segura perfil do usuario;) </h1>;
+import React from "react";
+import styles from "../styles/login.module.css";
+import LoginCard from "../src/components/LoginCard/LoginCard";
+
+export default function LoginPage() {
+  return React.createElement(
+    "div",
+    { className: styles.background },
+    React.createElement(LoginCard)
+  );
 }
 
-export default Home;
+function Home() {
+  return <h1>Home </h1>;
+}
