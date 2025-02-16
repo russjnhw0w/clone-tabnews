@@ -82,7 +82,7 @@
     #8a2be2
   ); /* Gradiente harmonizado */
   background-size: 300% 300%;
-  -webkit-background-clip: text;
+
   -webkit-text-fill-color: transparent;
   animation:
     gradientAnimation 5s ease infinite,
