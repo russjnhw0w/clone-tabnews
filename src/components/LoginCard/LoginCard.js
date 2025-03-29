@@ -20,7 +20,7 @@ const Card = () => {
   return (
     <>
       <button className={styles.button} onClick={handleCadastroClick}>
-        Registre-se
+        Login
       </button>
       <button className={styles.button} onClick={handleQuemSomosClick}>
         Quem somos

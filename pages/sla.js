@@ -9,3 +9,7 @@ export default function LoginPage() {
     React.createElement(LoginCard)
   );
 }
+
+function Home() {
+  return <h1>Home </h1>;
+}

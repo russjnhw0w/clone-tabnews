@@ -1,0 +1,14 @@
+body {
+  color: aliceblue;
+  font-family: "Montserrat", sans-serif;
+  background-color: #202020
+}
+
+.title-container {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}

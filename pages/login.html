@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="imagens/chassifort.ico" />
+
+    <title>Chassifort Login</title>
+    <link rel="stylesheet" href="/styles/login.css" />
+    <style type="text/css" id="OperaUserStyle"></style>
+  </head>
+  <body>
+    <a href="https://www.enginedev.com.br">
+      <img
+        src="/public/pngegg.png"
+        alt="Logo Chassifort"
+        class="logo-chassifort"
+      />
+    </a>
+    <form action="">
+      <div class="titulo">
+        <h1>Faça seu Login</h1>
+
+        <div class="barra-horizontal"></div>
+      </div>
+
+      <div class="campo-input">
+        <label for="email">Digite seu email</label>
+        <input type:"email" placeholder="exemplo@hotmail.com" id="email">
+      </div>
+
+      <div class="campo-input">
+        <label for="password">Digite sua senha</label>
+        <div class="password-container">
+          <input type="text" placeholder="Digite sua senha" id="password" />
+          <button type="button" class="toggle-password">👁️</button>
+        </div>
+      </div>
+
+      <div class="lembrar-me">
+        <input type="checkbox" />
+        <p>Lembrar-me</p>
+      </div>
+
+      <button id="button">Entrar</button>
+      <p class="esqueceuSenha" id="esqueceuSenha">
+        Cadastre-se
+        <a href="#">Clique Aqui!</a>
+      </p>
+    </form>
+    <script src="/login.js"></script>
+  </body>
+</html>

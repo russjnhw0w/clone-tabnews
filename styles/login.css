@@ -1,0 +1,111 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+      background-color: #404040;
+    color: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-size: cover;
+    background-position: 50%;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  .barra-horizontal {
+    background-color: #c03232;
+    height: 5px;
+    width: 175px;
+  }
+  
+  input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f1f1f1;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 50px;
+    border-radius: 30px;
+    width: 420px;
+    background-color: white;
+    unicode-bidi: isolate;
+  }
+  
+  input [type="email" i] {
+    padding-block: 1px;
+    padding-inline: 2px;
+  }
+  
+  .logo-chassifort {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: auto;
+  }
+  
+  .campo-input {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .lembrar-me {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #button {
+    width: 160px;
+    align-self: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-color: #c03232;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .password-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-password {
+    display: flex;
+    margin-left: 130px;
+    border-radius: 60%;
+    border-color: rgb(159, 221, 221);
+    cursor: pointer;
+    background: none;
+    padding: 3px;
+  }
+  
+  button:hover {
+    transform: scale(1.03);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  a {
+    color: #c03232;
+  }
+  
+  a:hover {
+    transition: color #ccc;
+  }
+  
