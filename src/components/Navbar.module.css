@@ -1,0 +1,609 @@
+/* Navbar.module.css - Versão Compatível com CSS Modules */
+
+/* Variáveis de tema aplicadas diretamente nos elementos */
+.navbar {
+  /* Cores base */
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --secondary: #f59e0b;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --glass: rgba(255, 255, 255, 0.1);
+  --text-primary: #56595e;
+  --text-light: #f8fafc;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-secondary: #b0b0b0;
+  --primary-accent: #3a86ff;
+  --secondary-accent: #8338ec;
+  --hover-light: rgba(255, 255, 255, 0.05);
+  --shadow-dark: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+  /* Estilos da navbar */
+  font-family: "Poppins", sans-serif; /* Fonte principal */
+  background: linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);
+  padding: 0.8rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-dark);
+  transition: all 0.3s ease;
+}
+
+/* Estrutura Principal */
+.navContainer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Grupos de Navegação */
+.navGroup {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.rightGroup {
+  justify-content: flex-end;
+}
+
+.navCenter {
+  display: flex;
+  justify-content: center;
+}
+
+/* Logo 
+.navLogo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--light);
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+}
+*/
+
+.navLogo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.navLogo:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Links de Navegação */
+.navLink {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.linkUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-accent);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+}
+
+.navLink:hover .linkUnderline {
+  width: 100%;
+}
+
+.activeLink {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.activeLink .linkUnderline {
+  width: 100%;
+  background: var(--secondary);
+}
+
+/* Botões CTA */
+.ctaButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.primaryCta {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+  background: var(--primary);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.primaryCta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Separador */
+.navDivider {
+  width: 1px;
+  height: 24px;
+  background: var(--border-color);
+  margin: 0 0.75rem;
+}
+
+/* Toggle de Tema */
+.themeToggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.themeToggle {
+  width: 50px;
+  height: 28px;
+  border-radius: 50px;
+  background: var(--bg-secondary);
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.toggleThumb {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-accent);
+  left: 2px;
+  top: 2px;
+  transition: transform 0.3s ease;
+}
+
+.themeToggleDark .toggleThumb {
+  transform: translateX(22px);
+}
+
+.themeIcon {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Menu Mobile */
+.menuTrigger {
+  display: none;
+  background: var(--glass);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menuTrigger:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menuDash {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menuDash::before,
+.menuDash::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.menuDash::before {
+  top: -6px;
+}
+
+.menuDash::after {
+  bottom: -6px;
+}
+
+.menuTrigger[aria-expanded="true"] .menuDash {
+  background: transparent;
+}
+
+.menuTrigger[aria-expanded="true"] .menuDash::before {
+  transform: rotate(45deg) translate(5px, 5px);
+  background: var(--secondary);
+}
+
+.menuTrigger[aria-expanded="true"] .menuDash::after {
+  transform: rotate(-45deg) translate(5px, -5px);
+  background: var(--secondary);
+}
+
+.navMobile {
+  display: none;
+  flex-direction: column;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.95) 0%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 6rem 2rem 2rem;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+  animation: menuFadeIn 0.4s ease-out forwards;
+}
+
+.mobileOpen {
+  display: flex;
+}
+
+.mobileLink {
+  font-family: "Poppins", sans-serif;
+  color: var(--light);
+  text-decoration: none;
+  padding: 1.25rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobileLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--secondary);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.mobileLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  padding-left: 1.5rem;
+}
+
+.mobileLink:hover::before {
+  transform: scaleY(1);
+}
+
+.mobileActive {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.mobileCtas {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileThemeToggle {
+  margin-top: 1.5rem;
+}
+
+.mobileThemeButton {
+  background: var(--glass);
+  border: none;
+  color: var(--light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  color: var(--secondary);
+  transform: rotate(90deg);
+}
+
+/* Animações */
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .navContainer {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .navGroup:not(.rightGroup) {
+    display: none;
+  }
+
+  .rightGroup {
+    gap: 0.5rem;
+  }
+
+  .navDivider,
+  .themeIcon {
+    display: none;
+  }
+
+  .menuTrigger {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .themeToggleContainer {
+    gap: 0.25rem;
+  }
+
+  .primaryCta {
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Tema Claro */
+.light {
+  background: #ffffff;
+  color: #121212;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  --text-primary: #121212;
+  --text-secondary: #4a4a4a;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --hover-light: rgba(0, 0, 0, 0.05);
+}
+
+.light .navLink {
+  color: var(--text-secondary);
+}
+
+.light .navLink:hover {
+  color: var(--text-primary);
+}
+
+.light .ctaButton {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .ctaButton:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.light .menuTrigger {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.light .menuTrigger:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes específicos para o grupo de CTAs */
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+/* Botão secundário (Fale Conosco) */
+.ctaButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  height: fit-content;
+  white-space: nowrap;
+}
+
+/* Botão primário (Agendar Demo) */
+.primaryCta {
+  background: var(--primary);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  height: fit-content;
+  white-space: nowrap;
+}
+
+/* Alinhamento vertical dos ícones */
+.ctaIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Versão mobile */
+.mobileCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.mobileCta {
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.mobilePrimaryCta {
+  background: var(--primary);
+  color: white;
+}
+
+/* Toggle de Tema */
+.themeToggleWrapper {
+  margin-left: 1rem;
+}
+
+.themeToggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.themeToggle {
+  width: 50px;
+  height: 28px;
+  border-radius: 50px;
+  background: var(--bg-secondary);
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.toggleThumb {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-accent);
+  left: 2px;
+  top: 2px;
+  transition: transform 0.3s ease;
+}
+
+.themeToggleDark .toggleThumb {
+  transform: translateX(22px);
+}
+
+.themeIcon {
+  color: var(--text-secondary);
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+/* Versão Mobile */
+.mobileThemeToggle {
+  margin-top: 1.5rem;
+}
+
+.mobileThemeButton {
+  background: var(--glass);
+  border: none;
+  color: var(--light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Tema Claro */
+.light .navbar {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  --text-primary: #121212;
+  --text-secondary: #4a4a4a;
+}
+
+.light .navLink {
+  color: var(--text-secondary);
+}
+
+.light .navLink:hover {
+  color: var(--text-primary);
+}
+
+.light .themeIcon {
+  color: var(--text-secondary);
+}
