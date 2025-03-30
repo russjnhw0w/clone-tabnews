@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Variáveis de tema light (padrão) */
+  --bg-primary: #ffffff;
+  --text-primary: #1e293b;
+  --color-primary: #2563eb;
+  --nav-bg: #f8fafc;
+  --transition-speed: 0.3s;
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+}
+
+/* Tema Dark */
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --text-primary: #f8fafc;
+  --color-primary: #3a86ff;
+  --nav-bg: #1e293b;
+}
+
+/* Estilos globais */
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+/* Tipografia */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Classes utilitárias */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}

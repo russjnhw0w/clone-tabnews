@@ -3,40 +3,23 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navbar.module.css";
 import { FiCalendar, FiArrowRight, FiSun, FiMoon } from "react-icons/fi";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function Navbar() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState("dark");
+  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Estado para menu mobile
 
-  // Efeitos para tema
-  useEffect(() => {
-    const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light";
-    const savedTheme = localStorage.getItem("theme") || preferredTheme;
-    setTheme(savedTheme);
-  }, []);
+  // Removido os useEffects duplicados de tema (já estão no ThemeContext)
 
-  useEffect(() => {
-    document.documentElement.className = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  // Efeito para scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
-  // Itens de navegação divididos em grupos
+  // Itens de navegação
   const leftItems = [
     { path: "/", label: "Home" },
     { path: "/quem-somos", label: "Quem Somos" },
@@ -47,7 +30,6 @@ export default function Navbar() {
     { path: "/portfolio", label: "Portfólios" },
   ];
 
-  // Itens CTA
   const ctaItems = [
     { path: "/contato", label: "Fale Conosco", isCta: true },
     { path: "/demo", label: "Agendar Demo", isPrimaryCta: true },
@@ -59,7 +41,7 @@ export default function Navbar() {
         className={`${styles.navbar} ${scrolled ? styles.scrolled : ""} ${theme === "light" ? styles.light : ""}`}
       >
         <div className={styles.navContainer}>
-          {/* Grupo Esquerdo - Mantido organizado */}
+          {/* Grupo Esquerdo */}
           <div className={styles.navGroup}>
             {leftItems.map((item) => (
               <NavItem
@@ -70,7 +52,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Grupo Direito - Reorganizado para melhor espaçamento */}
+          {/* Grupo Direito */}
           <div className={`${styles.navGroup} ${styles.rightGroup}`}>
             {rightItems.map((item) => (
               <NavItem
@@ -80,10 +62,8 @@ export default function Navbar() {
               />
             ))}
 
-            {/* Separador visual apenas em desktop */}
             <div className={styles.navDivider}></div>
 
-            {/* CTAs com espaçamento adequado */}
             <div className={styles.ctaGroup}>
               {ctaItems.map((item) => (
                 <NavItem
@@ -95,7 +75,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Toggle de tema - Posição corrigida */}
+            {/* Toggle de tema */}
             <div className={styles.themeToggleWrapper}>
               <div className={styles.themeToggleContainer}>
                 <FiSun size={16} className={styles.themeIcon} />
@@ -124,7 +104,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Menu Mobile - Mantido funcional */}
+      {/* Menu Mobile */}
       <div className={`${styles.navMobile} ${isOpen ? styles.mobileOpen : ""}`}>
         <button
           className={styles.closeButton}
@@ -175,7 +155,7 @@ export default function Navbar() {
   );
 }
 
-// Componente NavItem - Atualizado mas mantendo a estrutura original
+// Componente NavItem (mantido igual)
 const NavItem = ({
   item,
   isCta = false,

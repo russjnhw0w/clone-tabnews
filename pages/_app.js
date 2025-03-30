@@ -1,21 +1,17 @@
-import React from "react";
-import Navbar from "../src/components/Navbar"; // Use caminho relativo se o alias não funcionar
-import Head from "next/head";
+// pages/_app.js
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import "../styles/globals.css";
+import Navbar from "@/components/Navbar";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+    <ThemeProvider>
+      {/* Metadados básicos */}
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <Navbar />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }
 
