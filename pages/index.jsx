@@ -2,6 +2,10 @@ import Head from "next/head";
 import React from "react";
 import styles from "../styles/Home.module.css";
 import { FiArrowRight, FiCheck } from "react-icons/fi";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -18,7 +22,7 @@ export default function Home() {
         {/* Meta tags opcionais para SEO e compartilhamento */}
         <meta
           property="og:title"
-          content="Nome da Sua Empresa | Soluções Digitais"
+          content="Engine Development| Soluções Digitais"
         />
         <meta
           property="og:description"
@@ -50,7 +54,13 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.heroImage}>
-            <div className={styles.imagePlaceholder}></div>
+            <div className={styles.imagePlaceholder}>
+              <video autoPlay muted loop playsInline className={styles.video}>
+                <source src="/videos/background.mp4" type="video/mp4" />
+                {/* Mensagem de fallback se o vídeo não carregar */}
+                Seu navegador não suporta vídeos HTML5.
+              </video>
+            </div>
           </div>
         </section>
 
@@ -105,6 +115,88 @@ export default function Home() {
             </button>
           </div>
         </section>
+
+        <footer className={styles.footer}>
+          {/* Seção 1: Navegação Básica */}
+          <div className={styles.footerColumns}>
+            {/* Coluna 1 - Navegação */}
+            <div className={styles.footerSection}>
+              <h3>✌️ Navegar</h3>
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/sobre">Quem Somos</a>
+                </li>
+
+                <li>
+                  <a href="/contato">Portfólios</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Coluna 2 - Soluções (Adapte aos seus serviços reais) */}
+            <div className={styles.footerSection}>
+              <h3>🛠️ Nossas Soluções</h3>
+              <ul>
+                <li>
+                  <a href="/sistema-web">Sistemas Web</a>
+                </li>
+                <li>
+                  <a href="/aplicativos">Aplicativos</a>
+                </li>
+                <li>
+                  <a href="/consultoria">Consultoria Tech</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Coluna 3 - Contato Simples */}
+            <div className={styles.footerSection}>
+              <h3>📞 Contato</h3>
+              <p>contato@enginedev.com</p>
+              <p>(11) 98697-5940</p>
+              <div className={styles.socialIcons}>
+                <a href="#">
+                  <FaInstagram />
+                </a>
+                <a href="#">
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://wa.me/5511986975940"
+                  className={styles.whatsappButton}
+                >
+                  <FaWhatsapp />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.newsletterBox}>
+              <h4>Receba nossas atualizações</h4>
+              <form className={styles.newsletterForm}>
+                <input
+                  type="email"
+                  placeholder="Seu melhor e-mail"
+                  className={styles.newsletterInput}
+                  required
+                />
+                <button type="submit" className={styles.newsletterButton}>
+                  <FaPaperPlane className={styles.buttonIcon} /> Assinar
+                </button>
+              </form>
+            </div>
+          </div>
+
+          {/* Seção 2 - Direitos Autorais + Selo Simples */}
+          <div className={styles.footerBottom}>
+            <p>
+              © {new Date().getFullYear()} Engine Development - Todos os
+              direitos reservados
+            </p>
+          </div>
+        </footer>
       </main>
     </>
   );

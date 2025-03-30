@@ -51,6 +51,7 @@
 }
 
 .rightGroup {
+  text-decoration: none;
   justify-content: flex-end;
 }
 
@@ -112,6 +113,7 @@
 
 .navLink:hover {
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .navLink:hover .linkUnderline {
@@ -130,6 +132,7 @@
 
 /* Botões CTA */
 .ctaButton {
+  text-decoration: none !important;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   padding: 0.5rem 1.2rem;
@@ -139,10 +142,12 @@
 }
 
 .ctaButton:hover {
+  text-decoration: none !important;
   background: rgba(255, 255, 255, 0.2);
 }
 
 .primaryCta {
+  text-decoration: none !important;
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.5px;
   background: var(--primary);
@@ -157,9 +162,14 @@
 }
 
 .primaryCta:hover {
+  text-decoration: none !important;
   background: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.mobileCta {
+  text-decoration: none !important;
 }
 
 /* Separador */
